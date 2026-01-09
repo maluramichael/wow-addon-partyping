@@ -36,6 +36,7 @@ PartyPing.soundChannels = {
 local defaults = {
     profile = {
         enabled = true,
+        debug = false,
         soundChannel = "Master",
         events = {
             partyChat = {
@@ -105,6 +106,21 @@ function PartyPing:IsEnabled()
     return self.db.profile.enabled
 end
 
+function PartyPing:Debug(...)
+    if self.db.profile.debug then
+        self:Print("|cFF888888[Debug]|r", ...)
+    end
+end
+
+function PartyPing:ToggleDebug()
+    self.db.profile.debug = not self.db.profile.debug
+    if self.db.profile.debug then
+        self:Print("Debug mode |cFF00FF00ENABLED|r")
+    else
+        self:Print("Debug mode |cFFFF0000DISABLED|r")
+    end
+end
+
 function PartyPing:SlashCommand(input)
     local cmd = input:lower():trim()
 
@@ -114,6 +130,8 @@ function PartyPing:SlashCommand(input)
         self:Enable()
     elseif cmd == "disable" or cmd == "off" then
         self:Disable()
+    elseif cmd == "debug" then
+        self:ToggleDebug()
     elseif cmd == "config" or cmd == "options" then
         Settings.OpenToCategory("PartyPing")
     elseif cmd == "test" then
@@ -130,6 +148,7 @@ function PartyPing:PrintHelp()
     self:Print("  /pp toggle - Toggle sounds on/off")
     self:Print("  /pp enable|on - Enable sounds")
     self:Print("  /pp disable|off - Disable sounds")
+    self:Print("  /pp debug - Toggle debug output")
     self:Print("  /pp config - Open configuration panel")
     self:Print("  /pp test - Play all configured sounds")
     self:Print("Macro: /run PartyPing:Toggle()")

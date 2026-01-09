@@ -23,6 +23,7 @@ function PartyPing:OnPartyChat(sender, message)
 
     local settings = self.db.profile.events.partyChat
     if settings.enabled then
+        self:Debug("Party chat from " .. sender)
         self:PlaySound(settings.sound)
     end
 end
@@ -46,6 +47,7 @@ end
 function PartyPing:OnPlayerJoined(count)
     local settings = self.db.profile.events.playerJoined
     if settings.enabled then
+        self:Debug("Player joined group (" .. count .. " new)")
         self:PlaySound(settings.sound)
     end
 end
@@ -53,6 +55,7 @@ end
 function PartyPing:OnPlayerLeft(count)
     local settings = self.db.profile.events.playerLeft
     if settings.enabled then
+        self:Debug("Player left group (" .. count .. " left)")
         self:PlaySound(settings.sound)
     end
 end
@@ -60,6 +63,7 @@ end
 function PartyPing:OnGroupDisbanded()
     local settings = self.db.profile.events.groupDisbanded
     if settings.enabled then
+        self:Debug("Group disbanded")
         self:PlaySound(settings.sound)
     end
 end
