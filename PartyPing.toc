@@ -1,0 +1,13 @@
+## Interface: 11508
+## Title: PartyPing
+## Notes: Play configurable sounds for party events
+## Author: Michael Malura
+## Version: 1.0.0
+## SavedVariables: PartyPingDB
+## OptionalDeps: Ace3, LibSharedMedia-3.0
+
+embeds.xml
+
+Core.lua
+Events.lua
+Config.lua
