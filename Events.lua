@@ -16,6 +16,8 @@ function PartyPing:CHAT_MSG_PARTY_LEADER(event, message, sender, ...)
 end
 
 function PartyPing:OnPartyChat(sender, message)
+    if not self.db.profile.enabled then return end
+
     local playerName = UnitName("player")
     if sender == playerName or sender:match("^" .. playerName .. "%-") then
         return
@@ -45,6 +47,8 @@ function PartyPing:GROUP_ROSTER_UPDATE()
 end
 
 function PartyPing:OnPlayerJoined(count)
+    if not self.db.profile.enabled then return end
+
     local settings = self.db.profile.events.playerJoined
     if settings.enabled then
         self:Debug("Player joined group (" .. count .. " new)")
@@ -53,6 +57,8 @@ function PartyPing:OnPlayerJoined(count)
 end
 
 function PartyPing:OnPlayerLeft(count)
+    if not self.db.profile.enabled then return end
+
     local settings = self.db.profile.events.playerLeft
     if settings.enabled then
         self:Debug("Player left group (" .. count .. " left)")
@@ -61,6 +67,8 @@ function PartyPing:OnPlayerLeft(count)
 end
 
 function PartyPing:OnGroupDisbanded()
+    if not self.db.profile.enabled then return end
+
     local settings = self.db.profile.events.groupDisbanded
     if settings.enabled then
         self:Debug("Group disbanded")
