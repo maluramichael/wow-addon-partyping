@@ -1,8 +1,11 @@
-## Interface: 11508
-## Title: PartyPing
+## Interface: 11508, 20505
+## Title: |cFF00D1FFMM|r PartyPing
 ## Notes: Play configurable sounds for party events
 ## Author: Michael Malura
-## Version: 1.0.0
+## Version: 1.0.7
+## IconTexture: Interface\Icons\INV_Misc_Bell_01
+## Category-enUS: Chat & Communication
+## Category-deDE: Chat & Kommunikation
 ## SavedVariables: PartyPingDB
 ## OptionalDeps: Ace3, LibSharedMedia-3.0
 
