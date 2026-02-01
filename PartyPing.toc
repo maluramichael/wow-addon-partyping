@@ -3,6 +3,7 @@
 ## Notes: Play configurable sounds for party events
 ## Author: Michael Malura
 ## Version: 1.0.8
+## X-Curse-Project-ID: 1445404
 ## IconTexture: Interface\Icons\INV_Misc_Bell_01
 ## Category-enUS: Chat & Communication
 ## Category-deDE: Chat & Kommunikation
