@@ -17,7 +17,7 @@ read_globals = {
     "LibStub",
     "CreateFrame", "UIParent", "GameTooltip", "Settings", "PlaySoundFile",
     "GetNumGroupMembers", "IsInGroup", "UnitName", "UnitGUID",
-    "InterfaceOptionsFrame_OpenToCategory", "C_Timer",
+    "InterfaceOptionsFrame_OpenToCategory", "C_Timer", "C_AddOns",
     "pairs", "ipairs", "select", "string", "table", "math", "format",
     "tonumber", "tostring", "type", "unpack",
 }
