@@ -13,16 +13,16 @@ PartyPing.LSM = LibStub("LibSharedMedia-3.0")
 -- Addon version
 PartyPing.version = C_AddOns.GetAddOnMetadata(addonName, "Version") or "1.0.0"
 
--- Register built-in WoW sounds with LibSharedMedia
-PartyPing.LSM:Register("sound", "PP: Bell", [[Sound\Doodad\BellTollAlliance.ogg]])
-PartyPing.LSM:Register("sound", "PP: Chime", [[Sound\Interface\iQuestComplete.ogg]])
-PartyPing.LSM:Register("sound", "PP: Raid Warning", [[Sound\Interface\RaidWarning.ogg]])
-PartyPing.LSM:Register("sound", "PP: Ready Check", [[Sound\Interface\ReadyCheck.ogg]])
-PartyPing.LSM:Register("sound", "PP: Level Up", [[Sound\Interface\LevelUp.ogg]])
-PartyPing.LSM:Register("sound", "PP: Auction Open", [[Sound\Interface\AuctionWindowOpen.ogg]])
-PartyPing.LSM:Register("sound", "PP: Auction Close", [[Sound\Interface\AuctionWindowClose.ogg]])
-PartyPing.LSM:Register("sound", "PP: PvP Enter", [[Sound\Spells\PVPEnterQueue.ogg]])
-PartyPing.LSM:Register("sound", "PP: Tell Message", [[Sound\Interface\iTellMessage.ogg]])
+-- Register built-in WoW sounds with LibSharedMedia (FileDataIDs, the modern engine rejects file paths)
+PartyPing.LSM:Register("sound", "PP: Bell", 566564)
+PartyPing.LSM:Register("sound", "PP: Chime", 567439)
+PartyPing.LSM:Register("sound", "PP: Raid Warning", 567397)
+PartyPing.LSM:Register("sound", "PP: Ready Check", 567409)
+PartyPing.LSM:Register("sound", "PP: Level Up", 567431)
+PartyPing.LSM:Register("sound", "PP: Auction Open", 567482)
+PartyPing.LSM:Register("sound", "PP: Auction Close", 567499)
+PartyPing.LSM:Register("sound", "PP: PvP Enter", 568587)
+PartyPing.LSM:Register("sound", "PP: Tell Message", 567421)
 
 -- Sound channels
 PartyPing.soundChannels = {
@@ -43,6 +43,22 @@ local defaults = {
                 enabled = true,
                 sound = "PP: Chime",
             },
+            raidChat = {
+                enabled = true,
+                sound = "PP: Chime",
+            },
+            raidWarning = {
+                enabled = true,
+                sound = "PP: Raid Warning",
+            },
+            instanceChat = {
+                enabled = true,
+                sound = "PP: Chime",
+            },
+            whisper = {
+                enabled = true,
+                sound = "PP: Tell Message",
+            },
             playerJoined = {
                 enabled = true,
                 sound = "PP: Bell",
@@ -54,6 +70,22 @@ local defaults = {
             groupDisbanded = {
                 enabled = true,
                 sound = "PP: Raid Warning",
+            },
+            readyCheck = {
+                enabled = true,
+                sound = "PP: Ready Check",
+            },
+            rolePoll = {
+                enabled = true,
+                sound = "PP: PvP Enter",
+            },
+            summon = {
+                enabled = true,
+                sound = "PP: Level Up",
+            },
+            dungeonReady = {
+                enabled = true,
+                sound = "PP: PvP Enter",
             },
         },
     },
@@ -160,9 +192,17 @@ function PartyPing:TestSounds()
     local delay = 0
     local eventNames = {
         partyChat = "Party Chat",
+        raidChat = "Raid Chat",
+        raidWarning = "Raid Warning",
+        instanceChat = "Instance Chat",
+        whisper = "Whisper",
         playerJoined = "Player Joined",
         playerLeft = "Player Left",
         groupDisbanded = "Group Disbanded",
+        readyCheck = "Ready Check",
+        rolePoll = "Role Poll",
+        summon = "Summon",
+        dungeonReady = "Dungeon Ready",
     }
 
     for eventKey, eventLabel in pairs(eventNames) do

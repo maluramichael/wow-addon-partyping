@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0] - 2026-11-06
+
+### Added
+- WoW Forever support (interface 16001)
+- Built-in sounds are registered by FileDataID, fixes "invalid file" errors on the modern client
+
 ## [1.0.0] - 2025-01-09
 
 ### Added
