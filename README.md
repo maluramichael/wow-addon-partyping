@@ -1,5 +1,11 @@
 # PartyPing
 
+<!-- links:start -->
+[![Support me on Ko-fi](https://malura.de/assets/badge/kofi.svg)](https://malura.de/go/kofi?ref=wow-addon-partyping)
+[![Check out my page](https://malura.de/assets/badge/malura.svg)](https://malura.de/go/site?ref=wow-addon-partyping)
+[![CurseForge](https://malura.de/badge/curseforge/partyping.svg)](https://www.curseforge.com/wow/addons/partyping)
+<!-- links:end -->
+
 A lightweight World of Warcraft addon that plays configurable sounds for party events. Never miss a party chat message, group join, or disband again.
 
 ## Features
